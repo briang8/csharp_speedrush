@@ -18,7 +18,7 @@ namespace SpeedRush.WPF
         public MainWindow()
         {
             // Reads MainWindow.xaml and creates all the controls.
-            // Must be first — without it every x:Name variable is null.
+            // Must be first - without it every x:Name variable is null.
             InitializeComponent();
 
             // Fill the car dropdown as soon as the window opens
@@ -135,6 +135,8 @@ namespace SpeedRush.WPF
                 SetButtons(enabled: false);
                 CarComboBox.IsEnabled = true;
 
+                string outcome = result.PlayerWon ? "YOU WON" : "YOU LOST";
+
                 string message = result.EndReason switch
                 {
                     RaceEndReason.Finished => "Congratulations! You finished the race!",
@@ -145,7 +147,10 @@ namespace SpeedRush.WPF
                         : "Race over."
                 };
 
-                MessageBox.Show(message, "Race Finished",
+                LogBox.Text += $"\n===== {outcome} =====\n{message}\n";
+                LogBox.ScrollToEnd();
+
+                MessageBox.Show(message, outcome,
                     MessageBoxButton.OK,
                     result.PlayerWon
                         ? MessageBoxImage.Information
