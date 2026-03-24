@@ -11,6 +11,15 @@ namespace SpeedRush.Models
         PitStop         // 2  stop, refuel, costs extra time
     }
 
+    /// <summary>Why the race ended.</summary>
+    public enum RaceEndReason
+    {
+        None,
+        Finished,
+        OutOfTime,
+        OutOfFuel
+    }
+
     /// <summary>Everything the UI needs to know after one turn.</summary>
 
     public struct TurnResult
@@ -20,6 +29,7 @@ namespace SpeedRush.Models
         public double FuelRemaining;   // current fuel after this turn
         public bool   RaceOver;        // true = game has ended
         public bool   PlayerWon;       // true = crossed finish line
+        public RaceEndReason EndReason; // specific reason race ended
     }
 
 

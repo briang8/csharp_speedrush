@@ -9,3 +9,4 @@ C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\Spee
 C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\refint\SpeedRush.Models.dll
 C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.pdb
 C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\ref\SpeedRush.Models.dll
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.sourcelink.json

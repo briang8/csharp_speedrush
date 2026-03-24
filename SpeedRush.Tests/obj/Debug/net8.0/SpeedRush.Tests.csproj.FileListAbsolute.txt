@@ -169,3 +169,4 @@ C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Tests\obj\Debug\net8.0\refin
 C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Tests\obj\Debug\net8.0\SpeedRush.Tests.pdb
 C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Tests\obj\Debug\net8.0\SpeedRush.Tests.genruntimeconfig.cache
 C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Tests\obj\Debug\net8.0\ref\SpeedRush.Tests.dll
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Tests\obj\Debug\net8.0\SpeedRush.Tests.sourcelink.json

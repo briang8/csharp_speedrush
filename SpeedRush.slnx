@@ -1,6 +1,5 @@
 <Solution>
   <Project Path="SpeedRush.Models/SpeedRush.Models.csproj" />
   <Project Path="SpeedRush.Tests/SpeedRush.Tests.csproj" />
-  <Project Path="SpeedRush.UI/SpeedRush.UI.csproj" />
   <Project Path="SpeedRush.WPF/SpeedRush.WPF.csproj" />
 </Solution>

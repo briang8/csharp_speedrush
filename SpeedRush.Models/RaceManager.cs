@@ -9,7 +9,7 @@ namespace SpeedRush.Models
     public class RaceManager
     {
         //  Constants 
-        public const int    TotalTime         = 300;  // seconds allowed
+        public const int    TotalTime         = 360;  // seconds allowed
         public const int    TimePerTurn       = 10;   // seconds per normal action
         public const double PitStopRefuel     = 40.0; // litres added per pit stop
         public const double SpeedUpMultiplier = 1.5;  // speed & fuel multiplier
@@ -20,6 +20,7 @@ namespace SpeedRush.Models
         public int   ElapsedTime { get; private set; }
         public bool  RaceOver    { get; private set; }
         public bool  PlayerWon   { get; private set; }
+        public RaceEndReason EndReason { get; private set; }
 
         // Computed property, calculates from ElapsedTime automatically
         public int TimeRemaining => TotalTime - ElapsedTime;
@@ -34,6 +35,7 @@ namespace SpeedRush.Models
             ElapsedTime = 0;
             RaceOver    = false;
             PlayerWon   = false;
+            EndReason   = RaceEndReason.None;
         }
 
         //  Core Method 
@@ -50,7 +52,8 @@ namespace SpeedRush.Models
                 {
                     Message  = "The race is already over!",
                     RaceOver = true,
-                    PlayerWon = PlayerWon
+                    PlayerWon = PlayerWon,
+                    EndReason = EndReason
                 };
 
             TurnResult result = new TurnResult();
@@ -74,7 +77,7 @@ namespace SpeedRush.Models
                     catch (InvalidOperationException ex)
                     {
                         result.Message = $"[!] {ex.Message}";
-                        EndRace(won: false);
+                        EndRace(won: false, RaceEndReason.OutOfFuel);
                     }
                     break;
 
@@ -92,7 +95,7 @@ namespace SpeedRush.Models
                     catch (InvalidOperationException ex)
                     {
                         result.Message = $"[!] {ex.Message}";
-                        EndRace(won: false);
+                        EndRace(won: false, RaceEndReason.OutOfFuel);
                     }
                     break;
 
@@ -123,33 +126,35 @@ namespace SpeedRush.Models
 
             if (RaceTrack.IsFinished && !RaceOver)
             {
-                EndRace(won: true);
+                EndRace(won: true, RaceEndReason.Finished);
                 result.Message += "\n*** YOU WIN! Race complete! ***";
             }
             else if (TimeRemaining <= 0 && !RaceOver)
             {
-                EndRace(won: false);
+                EndRace(won: false, RaceEndReason.OutOfTime);
                 result.Message += "\n*** TIME'S UP! Race over. ***";
             }
             else if (ActiveCar.CurrentFuel <= 0 && !RaceOver)
             {
-                EndRace(won: false);
+                EndRace(won: false, RaceEndReason.OutOfFuel);
                 result.Message += "\n*** OUT OF FUEL! Race over. ***";
             }
 
             result.FuelRemaining = ActiveCar.CurrentFuel;
             result.RaceOver      = RaceOver;
             result.PlayerWon     = PlayerWon;
+            result.EndReason     = EndReason;
 
             RaceTrack.EventLog.Add(result.Message);
             return result;
         }
 
         //  Private helper 
-        private void EndRace(bool won)
+        private void EndRace(bool won, RaceEndReason reason)
         {
             RaceOver  = true;
             PlayerWon = won;
+            EndReason = reason;
         }
 
         //  Static factory 
@@ -158,9 +163,9 @@ namespace SpeedRush.Models
         public static List<Car> GetAvailableCars() =>
             new List<Car>
             {
-                new Car("BMW e30",    baseSpeed: 15, fuelConsumption: 7.1, fuelCapacity: 64.0),
-                new Car("Benz 140E",     baseSpeed: 10, fuelConsumption: 5.9, fuelCapacity: 50.0),
-                new Car("Toyota Amarok",  baseSpeed: 20, fuelConsumption:  7.8, fuelCapacity: 80.0),
+                new Car("BMW e30",      baseSpeed: 18, fuelConsumption: 6.8, fuelCapacity: 95.0),
+                new Car("Benz 140E",    baseSpeed: 16, fuelConsumption: 10, fuelCapacity: 90.0),
+                new Car("Toyota Amarok",baseSpeed: 17, fuelConsumption: 8.5, fuelCapacity: 100.0),
             };
     }
 }

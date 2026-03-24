@@ -54,7 +54,14 @@ namespace SpeedRush.Models
             if (CurrentFuel <= 0)
                 throw new InvalidOperationException("Out of fuel! The race has ended.");
 
-            CurrentFuel -= FuelConsumption * multiplier;
+            double burnAmount = FuelConsumption * multiplier;
+            if (CurrentFuel < burnAmount)
+            {
+                CurrentFuel = 0;
+                throw new InvalidOperationException("Out of fuel! You could not complete this turn.");
+            }
+
+            CurrentFuel -= burnAmount;
 
            
             if (CurrentFuel < 0)

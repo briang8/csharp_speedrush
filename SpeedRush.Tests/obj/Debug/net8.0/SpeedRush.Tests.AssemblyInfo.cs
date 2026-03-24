@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpeedRush.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8876a2861271d94fda5ced707acafb1639df208c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpeedRush.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpeedRush.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

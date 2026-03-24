@@ -135,9 +135,15 @@ namespace SpeedRush.WPF
                 SetButtons(enabled: false);
                 CarComboBox.IsEnabled = true;
 
-                string message = result.PlayerWon
-                    ? "Congratulations! You finished the race!"
-                    : "Race over. You ran out of fuel or time.";
+                string message = result.EndReason switch
+                {
+                    RaceEndReason.Finished => "Congratulations! You finished the race!",
+                    RaceEndReason.OutOfTime => "Race over. You ran out of time.",
+                    RaceEndReason.OutOfFuel => "Race over. You ran out of fuel.",
+                    _ => result.PlayerWon
+                        ? "Congratulations! You finished the race!"
+                        : "Race over."
+                };
 
                 MessageBox.Show(message, "Race Finished",
                     MessageBoxButton.OK,
