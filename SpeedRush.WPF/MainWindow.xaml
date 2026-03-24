@@ -1,0 +1,227 @@
+<Window x:Class="SpeedRush.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="C# Speed Rush"
+        Height="620" Width="480"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Background="White">
+
+    <!-- StackPanel stacks every child top-to-bottom.
+         Margin="15" puts 15px space on all four sides. -->
+    <StackPanel Margin="15">
+
+        <!--  TITLE  -->
+        <TextBlock Text="C# Speed Rush"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="#222222"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,15"/>
+
+        <!--  CAR SELECTION  -->
+        <!-- GroupBox draws a labelled border around related controls -->
+        <GroupBox Header="Select Your Car"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,10"
+                  Padding="8">
+            <StackPanel>
+
+                <!-- ComboBox = dropdown list.
+                     x:Name gives it an ID so code-behind can reference it.
+                     SelectionChanged fires when the user picks a different item. -->
+                <ComboBox x:Name="CarComboBox"
+                          FontSize="13"
+                          Height="28"
+                          Margin="0,0,0,6"
+                          SelectionChanged="CarComboBox_SelectionChanged"/>
+
+                <!-- Shows the selected car's stats. Updated in code-behind. -->
+                <TextBlock x:Name="CarDescText"
+                           Text="Pick a car above to see its stats"
+                           FontSize="11"
+                           Foreground="#555555"
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!--  RACE STATS  -->
+        <GroupBox Header="Race Status"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,10"
+                  Padding="8">
+
+            <!-- Grid splits this section into 2 equal columns -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="8"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- LAP — left column -->
+                <TextBlock Text="Lap"
+                           FontSize="11" Foreground="#666"
+                           Grid.Row="0" Grid.Column="0"/>
+                <TextBlock x:Name="LapLabel"
+                           Text="1 / 5"
+                           FontSize="20" FontWeight="Bold" Foreground="#222"
+                           Grid.Row="1" Grid.Column="0"/>
+
+                <!-- TIME — right column -->
+                <TextBlock Text="Time Remaining"
+                           FontSize="11" Foreground="#666"
+                           Grid.Row="0" Grid.Column="1"/>
+                <TextBlock x:Name="TimeLabel"
+                           Text="300s"
+                           FontSize="20" FontWeight="Bold" Foreground="#222"
+                           Grid.Row="1" Grid.Column="1"/>
+
+                <!-- FUEL label + bar — left column -->
+                <TextBlock Text="Fuel"
+                           FontSize="11" Foreground="#666"
+                           Grid.Row="3" Grid.Column="0"/>
+
+                <!-- ProgressBar: Minimum/Maximum set the range (0 to 100).
+                     Value is set in code as a percentage of current fuel. -->
+                <ProgressBar x:Name="FuelBar"
+                             Minimum="0" Maximum="100" Value="100"
+                             Height="18"
+                             Foreground="#e05555"
+                             Background="#eeeeee"
+                             BorderBrush="#cccccc"
+                             Grid.Row="4" Grid.Column="0"
+                             Margin="0,3,10,0"/>
+
+                <!-- Small text readout under the fuel bar -->
+                <TextBlock x:Name="FuelReadout"
+                           Text="80.0 / 80L"
+                           FontSize="11" Foreground="#555"
+                           Grid.Row="5" Grid.Column="0"/>
+
+                <!-- TIME bar — right column -->
+                <TextBlock Text="Time Used"
+                           FontSize="11" Foreground="#666"
+                           Grid.Row="3" Grid.Column="1"/>
+
+                <ProgressBar x:Name="TimeBar"
+                             Minimum="0" Maximum="100" Value="100"
+                             Height="18"
+                             Foreground="#4a90d9"
+                             Background="#eeeeee"
+                             BorderBrush="#cccccc"
+                             Grid.Row="4" Grid.Column="1"
+                             Margin="0,3,0,0"/>
+
+                <TextBlock x:Name="TimeReadout"
+                           Text="0s used"
+                           FontSize="11" Foreground="#555"
+                           Grid.Row="5" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+
+        <!--  LAP PROGRESS  -->
+        <GroupBox Header="Lap Progress"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,10"
+                  Padding="8">
+
+            <!-- Courier New = monospace font so the bar characters line up -->
+            <TextBlock x:Name="ProgressText"
+                       Text="[          ] 0%"
+                       FontFamily="Courier New"
+                       FontSize="13"
+                       Foreground="#333333"/>
+        </GroupBox>
+
+        <!--  ACTION BUTTONS  -->
+        <GroupBox Header="Actions"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,10"
+                  Padding="8">
+
+            <!-- UniformGrid gives each button exactly the same width -->
+            <UniformGrid Columns="3">
+
+                <Button x:Name="SpeedUpBtn"
+                        Content="Speed Up"
+                        Height="36"
+                        FontSize="13"
+                        Background="#e05555"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Margin="0,0,5,0"
+                        Cursor="Hand"
+                        Click="SpeedUpBtn_Click"
+                        IsEnabled="False"/>
+
+                <Button x:Name="MaintainBtn"
+                        Content="Maintain"
+                        Height="36"
+                        FontSize="13"
+                        Background="#4a90d9"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Margin="0,0,5,0"
+                        Cursor="Hand"
+                        Click="MaintainBtn_Click"
+                        IsEnabled="False"/>
+
+                <Button x:Name="PitStopBtn"
+                        Content="Pit Stop"
+                        Height="36"
+                        FontSize="13"
+                        Background="#f0a500"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="PitStopBtn_Click"
+                        IsEnabled="False"/>
+            </UniformGrid>
+        </GroupBox>
+
+        <!--  START BUTTON  -->
+        <Button x:Name="StartBtn"
+                Content="Start Race"
+                Height="38"
+                FontSize="14"
+                FontWeight="Bold"
+                Background="#333333"
+                Foreground="White"
+                BorderThickness="0"
+                Cursor="Hand"
+                Click="StartBtn_Click"
+                Margin="0,0,0,10"/>
+
+        <!--  RACE LOG  -->
+        <GroupBox Header="Race Log"
+                  FontWeight="SemiBold"
+                  Padding="8">
+
+            <!-- ScrollViewer adds a scrollbar when content is too tall -->
+            <ScrollViewer Height="130"
+                          VerticalScrollBarVisibility="Auto">
+
+                <!-- IsReadOnly = user can see text but not type in it.
+                     TextWrapping = long lines wrap instead of being cut off. -->
+                <TextBox x:Name="LogBox"
+                         IsReadOnly="True"
+                         Background="White"
+                         Foreground="#333333"
+                         FontFamily="Courier New"
+                         FontSize="11"
+                         BorderThickness="0"
+                         TextWrapping="Wrap"
+                         Text="Select a car and press Start Race."/>
+            </ScrollViewer>
+        </GroupBox>
+
+    </StackPanel>
+</Window>

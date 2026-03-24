@@ -1,0 +1,11 @@
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\bin\Debug\net8.0\SpeedRush.Models.deps.json
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\bin\Debug\net8.0\SpeedRush.Models.dll
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\bin\Debug\net8.0\SpeedRush.Models.pdb
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.AssemblyInfoInputs.cache
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.AssemblyInfo.cs
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.csproj.CoreCompileInputs.cache
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.dll
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\refint\SpeedRush.Models.dll
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\SpeedRush.Models.pdb
+C:\Users\kobet\Documents\ARVR\C#SpeedRush\SpeedRush.Models\obj\Debug\net8.0\ref\SpeedRush.Models.dll
