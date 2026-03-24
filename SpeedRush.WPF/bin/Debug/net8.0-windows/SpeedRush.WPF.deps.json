@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SpeedRush.WPF/1.0.0": {
+        "dependencies": {
+          "SpeedRush.Models": "1.0.0"
+        },
+        "runtime": {
+          "SpeedRush.WPF.dll": {}
+        }
+      },
+      "SpeedRush.Models/1.0.0": {
+        "runtime": {
+          "SpeedRush.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SpeedRush.WPF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SpeedRush.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- IsTestProject marks this for dotnet test to discover -->
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MSTest packages — installed by `dotnet new mstest` automatically -->
+    <PackageReference Include="MSTest.TestAdapter"   Version="3.3.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Tests need access to the Models so they can test them -->
+    <ProjectReference Include="..\SpeedRush.Models\SpeedRush.Models.csproj" />
+  </ItemGroup>
+</Project>
