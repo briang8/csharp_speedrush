@@ -31,12 +31,17 @@ The available cars are:
 You need .NET 8 SDK installed:
 https://dotnet.microsoft.com/download
 
+clone the repository 
+```bash
+git clone https://github.com/briang8/csharp_speedrush.git
+```
+
 From the repository root:
 
 Run the WPF desktop app (Windows only):
 dotnet run --project SpeedRush.WPF
 
-Run automated tests:
+To run automated tests:
 dotnet test
 or
 dotnet test SpeedRush.Tests.csproj
