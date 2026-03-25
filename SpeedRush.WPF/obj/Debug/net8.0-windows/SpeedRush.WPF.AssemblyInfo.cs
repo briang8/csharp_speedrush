@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpeedRush.WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99d87f017839a3092006189b09a0f27fb19cbdff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74bfbe983f105160d08b4084a0f06b5902420dcd")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpeedRush.WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpeedRush.WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

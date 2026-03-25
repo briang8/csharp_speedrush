@@ -38,7 +38,7 @@ namespace SpeedRush.Models
             BaseSpeed       = baseSpeed;
             FuelConsumption = fuelConsumption;
             FuelCapacity    = fuelCapacity;
-            CurrentFuel     = fuelCapacity;   // start with a full tank
+            CurrentFuel     = fuelCapacity;  
         }
 
         //  Methods 
