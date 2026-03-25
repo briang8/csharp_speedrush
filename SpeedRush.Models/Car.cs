@@ -84,7 +84,7 @@ namespace SpeedRush.Models
 
         /// <summary>
         /// Short summary used when displaying car info in the UI.
-        /// WPF ComboBox and our console menu both call this automatically.
+        /// WPF ComboBox calls this automatically.
         /// </summary>
         public override string ToString() =>
             $"{Name} | Speed: {BaseSpeed}/turn | Fuel use: {FuelConsumption}L/turn | Tank: {FuelCapacity}L";
