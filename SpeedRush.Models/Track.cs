@@ -1,4 +1,4 @@
-using System.Collections.Generic; // for List<T> and Queue<T>
+using System.Collections.Generic; 
 
 namespace SpeedRush.Models
 {
@@ -52,7 +52,7 @@ namespace SpeedRush.Models
         public int LapProgress { get; private set; }
 
         //  List<string> 
-        // A List is a dynamic array — grows as you .Add() to it.
+        // A List is a dynamic array  grows as you add to it.
         // We use it as a running log of race events.
         // The UI reads this to show the player what happened.
         public List<string> EventLog { get; private set; }
@@ -84,7 +84,7 @@ namespace SpeedRush.Models
         {
             LapProgress += distance;
 
-            // while: keep rolling over laps as long as we've covered enough distance
+            
             while (LapProgress >= LapDistance && CurrentLap < TotalLaps)
             {
                 LapProgress -= LapDistance; // carry over the extra

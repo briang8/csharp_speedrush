@@ -9,8 +9,8 @@ namespace SpeedRush.Models
     public class RaceManager
     {
         //  Constants 
-        public const int    TotalTime         = 360;  // seconds allowed
-        public const int    TimePerTurn       = 10;   // seconds per normal action
+        public const int    TotalTime         = 360;  
+        public const int    TimePerTurn       = 10;   
         public const double PitStopRefuel     = 40.0; // litres added per pit stop
         public const double SpeedUpMultiplier = 1.5;  // speed & fuel multiplier
 
@@ -58,7 +58,7 @@ namespace SpeedRush.Models
 
             TurnResult result = new TurnResult();
 
-            // switch/case: clean way to branch on a known set of values
+            // switch/case: it executes a block of code based on matching value against different cases.
             switch (action)
             {
                 case PlayerAction.SpeedUp:

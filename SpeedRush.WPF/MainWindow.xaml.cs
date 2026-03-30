@@ -1,24 +1,22 @@
 using System;
 using System.Windows;
-using System.Windows.Media;      // for Brushes (label colours)
-using SpeedRush.Models;          // Car, Track, RaceManager, PlayerAction, TurnResult
-
+using System.Windows.Media;      
+using SpeedRush.Models;         
 namespace SpeedRush.WPF
 {
-    // partial = this class is split across MainWindow.xaml and this file
-    // : Window = inherits all WPF window behaviour (title bar, close button, etc.)
+
     public partial class MainWindow : Window
     {
         //  Field 
         // Stores the current race. Null until Start is clicked.
-        // Every method in this class can access it.
+     
         private RaceManager? _raceManager;
 
         //  Constructor  
         public MainWindow()
         {
             // Reads MainWindow.xaml and creates all the controls.
-            // Must be first - without it every x:Name variable is null.
+          
             InitializeComponent();
 
             // Fill the car dropdown as soon as the window opens
@@ -34,6 +32,7 @@ namespace SpeedRush.WPF
 
             // ItemsSource = the data behind the dropdown.
             // WPF calls .ToString() on each Car to get the display text.
+
             CarComboBox.ItemsSource   = cars;
             CarComboBox.SelectedIndex = 0; // pre-select the first car
         }
@@ -43,17 +42,18 @@ namespace SpeedRush.WPF
         // Signature is always: (object sender, SomeEventArgs e)
 
         // Fires when the user picks a different car in the dropdown
+
         private void CarComboBox_SelectionChanged(object sender,
             System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            // SelectedItem comes back as "object" so we cast it to Car.
-            // "as Car" = safe cast, returns null instead of crashing if it fails.
+  
             var car = CarComboBox.SelectedItem as Car;
             if (car != null)
                 CarDescText.Text = car.ToString();
         }
 
-        // Fires when Start Race (or Restart Race) is clicked
+   
+
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
             var selected = CarComboBox.SelectedItem as Car;
@@ -67,8 +67,7 @@ namespace SpeedRush.WPF
             }
 
             // Create a fresh copy of the car so every restart has a full tank.
-            // We don't reuse the selected car object because it may already
-            // have spent fuel from a previous race.
+        
             var freshCar = new Car(
                 selected.Name,
                 selected.BaseSpeed,
@@ -112,21 +111,26 @@ namespace SpeedRush.WPF
 
         // Called by all three action buttons.
         // Sends the action to the game engine and updates the UI.
+
         private void ProcessAction(PlayerAction action)
         {
-            if (_raceManager == null) return; // safety check
+            if (_raceManager == null) return; 
 
             // Hand the action to the game engine.
             // Get back a TurnResult struct with the outcome.
+
             TurnResult result = _raceManager.ProcessTurn(action);
 
             // Add the result message to the log
+
             LogBox.Text += result.Message + "\n";
 
             // Scroll to the bottom so the newest message is always visible
+
             LogBox.ScrollToEnd();
 
             // Update all the labels and progress bars
+
             RefreshUI();
 
             // If the race just ended, lock the buttons and show a popup
@@ -163,6 +167,8 @@ namespace SpeedRush.WPF
         // Reads the current state from _raceManager and
         // pushes every value into the matching control.
         // Called after every action and on race start.
+
+        
         private void RefreshUI()
         {
             if (_raceManager == null) return;
